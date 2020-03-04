@@ -14,6 +14,7 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
+		'ext.giix-components.*', // giix components
 		'application.models.*',
 		'application.components.*',
 	),
@@ -26,7 +27,8 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths' => array(
-				'bootstrap.gii'
+				'bootstrap.gii',
+				'ext.giix-core', // giix generators
 			),
 		),
 	),
