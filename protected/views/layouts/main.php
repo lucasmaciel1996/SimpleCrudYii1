@@ -21,30 +21,25 @@
 <body>
 
 <div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"> </div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
+	<div id="mainmenu" >
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Cars', 'url'=>array('/MbCars')),
-				array('label'=>'Companies', 'url'=>array('/MbCompanies')),
+				array('label'=>'Cars', 'url'=>array('/MbCars/admin')),
+				array('label'=>'Companies', 'url'=>array('/MbCompanies/admin')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
+	<div class="breadcrumb">
+		<?php if(isset($this->breadcrumbs)):?>
+			<?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+				'links'=>$this->breadcrumbs,
+			)); ?><!-- breadcrumbs -->
+		<?php endif?>
+	</div>
+		<?php echo $content; ?>
 	<div class="clear"></div>
 
 	<div id="footer">
